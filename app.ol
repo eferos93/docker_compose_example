@@ -1,6 +1,5 @@
 type GreeterRequest { name:string }
 type GreeterResponse { response:string }
-type Params { port: int }
 
 interface GreeterAPI {
     RequestResponse: hello( GreeterRequest )( GreeterResponse )
