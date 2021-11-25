@@ -1,5 +1,5 @@
 type GreeterRequest { name:string }
-type GreeterResponse { response:string }
+type GreeterResponse { greeting:string }
 
 interface GreeterAPI {
     RequestResponse: hello( GreeterRequest )( GreeterResponse )
@@ -21,7 +21,8 @@ service Greeter {
     main {
         hello( request )( response ) {
             global.counter++
-            response.response = "Hello " + request.name + " this page has been visited " + global.counter + " times!"
+            response.greeting = "Hello " + request.name + " this page has been visited " + global.counter + " times!"
+            
         }
     }
 }
