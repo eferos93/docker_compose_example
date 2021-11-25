@@ -6,13 +6,13 @@ interface GreeterAPI {
     RequestResponse: hello( GreeterRequest )( GreeterResponse )
 }
 
-service Greeter( parameters:Params ) {
+service Greeter {
     execution: concurrent
 
     inputPort GreeterInput {
-        location: "socker:localhost:" + parameters.port
-        protocol: http { format = "html" }
-        interface: GreeterAPI
+        location: "socket://localhost:8000/"
+        protocol: http { format = "json" }
+        interfaces: GreeterAPI
     }
 
     init {
@@ -22,7 +22,7 @@ service Greeter( parameters:Params ) {
     main {
         hello( request )( response ) {
             global.counter++
-            response.response = "Hello" + request.name + "this page has been visited " + global.counter + "times!"
+            response.response = "Hello " + request.name + " this page has been visited " + global.counter + " times!"
         }
     }
 }
