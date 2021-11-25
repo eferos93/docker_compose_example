@@ -1,6 +1,9 @@
-version: '3.3'
+version: '3.9'
 services:
-  web:
+  app:
     build: .
     ports: 
       - "8000:8000"
+    volumes:
+      # seems like it is not working 
+      - .:/code # this mounts the project directory (current directory) on the host to /code inside the container

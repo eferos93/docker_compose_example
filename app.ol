@@ -21,7 +21,7 @@ service Greeter {
     main {
         hello( request )( response ) {
             global.counter++
-            response.greeting = "Hello " + request.name + " this page has been visited " + global.counter + " times!"
+            response.greeting = "Hello " + request.name + " the request 'hello' has been made " + global.counter + " times!"
             
         }
     }
