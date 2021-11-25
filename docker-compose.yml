@@ -4,6 +4,6 @@ services:
     build: .
     ports: 
       - "8000:8000"
-    volumes:
+    #volumes:
       # seems like it is not working 
-      - .:/code # this mounts the project directory (current directory) on the host to /code inside the container
+    #  - .:/code # this mounts the project directory (current directory) on the host to /code inside the container
